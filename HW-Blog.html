@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 呆呆小將的網站">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="呆呆的窩">
+    <meta property="og:description" content="推開前端世界的大門">
+    <meta property="og:image" content="bbcat.jpg">
+    <title>呆呆小將的網站</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+        integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', "Microsoft JhenHei";
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+        }
+
+        .margin-block-end-0 {
+            margin-block-end: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: aqua">
+
+        <a class="navbar-brand font-weight-bold" href="#"><i class="fas fa-ambulance"></i>呆呆的窩</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="vav-item nav-link active" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">Blog</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb  pl-0">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-10">
+                <small>
+                    <div class="mr-3">
+                        <span class="mr-3"><i class="fas fa-user"></i>呆呆小將</span>
+                        <span class="mr-3"><i class="far fa-clock"></i>2019/06/06</span>
+                        <a href="#" class="mr-3 badge  badge-primary"><i class="fas fa-tag"></i>心得</a href="#">
+                    </div>
+                </small>
+                <article>
+                    <h3>從頭開始的部落格</h3>
+                    <div>
+                        <p class="margin-block-end-0">
+                            在現在這篇心得文前有一篇與朋友打鬧用的學習部落格，主要是一邊聽課一邊建立起來，自己也增加一些小東西，不過想當然自己要新增東西當然會遇到問題，而其中有兩個問題我想應該有許多同學也會遇到：
+                        <ul class="margin-block-end-0">
+                            <li>伺服器如何建立
+                            <li>社群分享時網站標題與敘述消失
+                        </ul>
+                        其中伺服器架設問題透過cPanel解決了，雖然在全英文環境中摸索了很久(感謝各位前輩們的心得啊)不過還是成功租借了12個月的伺服器，而後在遇到社群分享的標題與敘述消失此問題時才得知有其他的meta需要設定：
+                            <ul class="margin-block-end-0">
+                                <li><code>meta property="og:title" content=""</code>社群分享中的title</li>
+                                <li><code>meta property="og:description" content=""</code>社群分享中的敘述</li>
+                                <li><code>meta property="og:image" content="SRC"</code>社群分享的圖片</li>
+                            </ul>
+                        而其中的og也就是<a href="http://ogp.me/" title="文本超連結">Open Graph protocol</a>的縮寫，這個問題要不是心血來潮想把網頁分享給朋友真的是不會遇到啊，想必之後的學習路程上會遇到更多不一樣的問題，只要將錯誤化為前進的動力相信可以學習到許多知識，今天的內容就這樣啦，附上一張貓照，讓我們下次見。
+                        </p>
+                        <img src="bbcat.jpg" alt="打包帶走" width="250px" height="300px" class="rounded mx-auto d-block">
+                </article>
+            </div>
+            <div class="col-2">
+                <div class="h5 text-primary">tags</div>
+                <a href="#" class="mr-3 badge  badge-primary"><i class="fas fa-tag"></i>心得</a href="#">
+                <a href="#" class="mr-3 badge  badge-primary"><i class="fas fa-tag"></i>BS4</a href="#">
+                <a href="#" class="mr-3 badge  badge-primary"><i class="fas fa-tag"></i>新手</a href="#">
+                <a href="#" class="mr-3 badge  badge-primary"><i class="fas fa-tag"></i>部落格</a href="#">
+            </div>
+            <div class="col-12 col-lg-10">
+                <div class="card">
+                    <div class="card-header">
+                        留言回復
+                    </div>
+                    <div class="card-body">
+                        <div class="media">
+                            <img width="64px" height="64px" src="https://randomuser.me/api/portraits/lego/5.jpg"
+                                class="mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">路過的使用者</h5>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        readonly="readonly">說些什麼吧...</textarea>
+                                </div>
+                                <button class="btn btn-dark btn-block mt-2 bg-primary">submit</button>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img width="64px" height="64px" src="my-pic.jpg" class="mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">呆呆小將</h5>
+                                <p>從頭開始建立一個部落格真的很多需要注意的地方</p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img width="64px" height="64px" src="https://randomuser.me/api/portraits/men/21.jpg"
+                                class="mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">陳老師</h5>
+                                <p>不要鬆懈，繼續努力</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="bg-light py-4 mt-3">
+        <div class="container d-flex justify-content-between">
+            <div>©copylight 2019呆呆小將</div>
+            <div><a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a></div>
+        </div>
+    </footer>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

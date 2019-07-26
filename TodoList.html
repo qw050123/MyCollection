@@ -1,30 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MyTodoList</title>
-    <script src="https://kit.fontawesome.com/e1aad31898.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="TodolistCss.css">
+
+    <link rel="stylesheet" href="css/all.css">
 </head>
+
 <body>
-    <div class="container mt-5">
-        <h1>My TodoList</h1>
-        <div class="listTab">
-            <ul class="d-flex justify-content-between px-3">
-                <li>全部事項</li>
-                <li>代辦事項</li>
-                <li>完成事項</li>
+    <div class="container" id='app'>
+        <h1 class="mt-5">My TodoList</h1>
+        <div class="tab-box">
+            <div class="d-flex align-items-center add-area">
+                <label for="newText">新增事項</label>
+                <input id="newText" class="h-100" type="text" placeholder="待辦事項" v-model="newTodo"
+                    @keyup.enter="addTodo" />
+                <button class="bg-info h-100  ml-auto" @click="addTodo">新增</button>
+            </div>
+            <ul class="d-flex justify-content-start px-0 bg-teal mb-0">
+                <a href="#">
+                    <li :class="{active: tab=='all'}" @click="tab='all'">全部事項</li>
+                </a>
+                <a href="#">
+                    <li :class="{active: tab=='active'}" @click="tab='active'">代辦事項</li>
+                </a>
+                <a href="#">
+                    <li :class="{active: tab=='complete'}" @click="tab='complete'">完成事項</li>
+                </a>
             </ul>
+            <div class="thing-box">
+                <div class="bg-white my-1" v-for="(item,key) in filteredTodos">
+                    <div class="d-flex align-items-center" v-if="item.id !== cacheTodo.id" @dblclick="editTodo(item)">
+                        <input type="checkbox" class="checkbox" v-model="item.completed" :id="item.id" :key="item.id" >
+                        <label class="mb-0 pl-1" :for="item.id"
+                            :class="{completed: item.completed}">{{item.title}}</label>
+                        <div class="ml-auto d-flex align-items-center">
+                            <p class="mb-0">{{item.now}}</p>
+                            <button class="btn p-2" @click="removeTodo(item)"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                    <input type="text" class="edit" v-if="item.id === cacheTodo.id" v-model="cacheTitle" @keyup.esc="cancelEdit()"
+                    @keyup.enter="downEdit(item)">
+                </div>
+            </div>
         </div>
+        <p id="noneCpmplete">待辦事項:{{noneComplete}}</p>
     </div>
 </body>
+<script src="https://kit.fontawesome.com/e1aad31898.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
+    function getTime() {
+        let time = new Date();
+        let nowTime = (time.getFullYear()-1911) + "." + (time.getMonth() + 1) + "." + time.getDate() + " " + time.getHours() + ":" + time.getMinutes();
+        return nowTime;
+    }
 
+    const app = new Vue({
+        el: '#app',
+        data: {
+            newTodo: '',
+            todos: [
+                {
+                    id: '1',
+                    title: '歡迎使用',
+                    completed: false,
+                    now: getTime(),
+                }
+            ],
+            tab: 'all',
+            cacheTodo: {},
+            cacheTitle: '',
+            cacheTime: '',
+            noneComplete: 1,
+        },
+        methods: {
+            addTodo() {
+                let thisValue = this.newTodo.trim();
+                let thisId = Math.floor(Date.now());
+                if (thisValue) {
+                    this.todos.push({
+                        id: thisId,
+                        title: thisValue,
+                        completed: false,
+                        now: getTime(),
+                    });
+                }
+                this.newTodo = '';
+                this.noneComplete += 1;
+            },
+            removeTodo(todo) {
+                let newIndex = '';
+                let vm = this;
+                vm.todos.forEach(function(item,key){
+                    if(todo.id == item.id){
+                        newIndex = key;
+                    }
+                });
+                this.todos.splice(newIndex, 1);
+                if(!todo.completed){
+                    this.noneComplete -= 1;
+                }
+            },
+            editTodo(todo) {
+                this.cacheTodo = todo;
+                this.cacheTitle = todo.title;
+                this.cacheTime = todo.now;
+            },
+            cancelEdit() {
+                this.cacheTodo = {};
+
+            },
+            downEdit(item){
+                item.title = this.cacheTitle;
+                this.cacheTitle = '';
+                this.cacheTodo = {};
+            }
+        },
+        computed: {
+
+            filteredTodos: function() {
+
+                if(this.tab == 'all'){
+                    return this.todos;
+                }
+                else if(this.tab == 'active'){
+                    let newTodos = [];
+                    this.todos.forEach(function(item) {
+                        if(!item.completed){
+                            newTodos.push(item)
+                            console.log(item);
+                        }
+                    })
+                    return newTodos;
+                }
+                else{
+                    let newTodos = [];
+                    this.todos.forEach(function(item) {
+                        if(item.completed){
+                            newTodos.push(item)
+                        }
+                    })
+                    return newTodos;
+                }
+            }
+        },
+    });
 </script>
+
 </html>

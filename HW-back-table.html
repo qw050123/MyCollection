@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="SRC">
+    <title>後台列表</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+        integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <style>
+        html {
+            font-size: 14px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', "Microsoft JhenHei";
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+        <a href="#" class="navbar-brand">後台區域</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarcollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarcollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="HW-back.html" class="nav-link">首頁</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="HW-back-table.html" class="nav-link active">列表</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    ,<div class="container">
+        <div class="d-flex justify-content-end">
+            <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target="#orderModal">快速下單</a>
+        </div>
+        <div class="table-repostive-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>編號</th>
+                        <th>日期</th>
+                        <th>姓名</th>
+                        <th>訂單</th>
+                        <th>數量</th>
+                        <th>金額</th>
+                        <th>狀況</th>
+                        <th>其他</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>6/15</td>
+                        <td>王小明</td>
+                        <td>衛生紙</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>已出貨</td>
+                        <td>
+                            <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                    data-target="#editModal" data-name="王小明">編輯</button>
+                                <button type="button" class="btn btn-outline-secondary">查看</button>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">客戶資料</a>
+                                    <a class="dropdown-item" href="#">匯出資料</a>
+                                    <a class="dropdown-item" href="#">訂單詳細</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="#" data-toggle="modal"
+                                        data-target="#removeModal">刪除訂單</a>
+                                </div>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>6/15</td>
+                        <td>葉小明</td>
+                        <td>衛生紙</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>已出貨</td>
+                        <td>
+                            <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                    data-target="#editModal" data-name="葉小明">編輯</button>
+                                <button type="button" class="btn btn-outline-secondary">查看</button>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">客戶資料</a>
+                                    <a class="dropdown-item" href="#">匯出資料</a>
+                                    <a class="dropdown-item" href="#">訂單詳細</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="#" data-toggle="modal"
+                                        data-target="#removeModal">刪除訂單</a>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td>3</td>
+                        <td>6/15</td>
+                        <td>鄭小明</td>
+                        <td>衛生紙</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td class="text-info">未出貨</td>
+                        <td>
+                            <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                    data-target="#editModal" data-name="鄭小明">編輯</button>
+                                <button type="button" class="btn btn-outline-secondary">查看</button>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">客戶資料</a>
+                                    <a class="dropdown-item" href="#">匯出資料</a>
+                                    <a class="dropdown-item" href="#">訂單詳細</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="#" data-toggle="modal"
+                                        data-target="#removeModal">刪除訂單</a>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>4</td>
+                        <td>6/15</td>
+                        <td>林小明</td>
+                        <td>衛生紙</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td class="text-danger">缺貨</td>
+                        <td>
+                            <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                    data-target="#editModal" data-name="林小明">編輯</button>
+                                <button type="button" class="btn btn-outline-secondary">查看</button>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">客戶資料</a>
+                                    <a class="dropdown-item" href="#">匯出資料</a>
+                                    <a class="dropdown-item" href="#">訂單詳細</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="#" data-toggle="modal"
+                                        data-target="#removeModal">刪除訂單</a>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>5</td>
+                        <td>6/15</td>
+                        <td>黃小明</td>
+                        <td>衛生紙</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td class="text-danger">缺貨</td>
+                        <td>
+                            <div class="btn-group  btn-group-sm" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                    data-target="#editModal" data-name="黃小明">編輯</button>
+                                <button type="button" class="btn btn-outline-secondary">查看</button>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">其他</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">客戶資料</a>
+                                    <a class="dropdown-item" href="#">匯出資料</a>
+                                    <a class="dropdown-item" href="#">訂單詳細</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="#" data-toggle="modal"
+                                        data-target="#removeModal">刪除訂單</a>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">快速下單</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="content-name">訂購人姓名：</label>
+                            <input type="input" class="form-control mb-2" placeholder="訂購人姓名" id="content-name">
+                            <label for="content">訂購物品：</label>
+                            <input type="input" class="form-control mb-2" placeholder="物品名稱" id="content">
+                            <label for="content-number">訂購數量：</label>
+                            <input type="input" class="form-control mb-2" placeholder="物品數量" id="content-number">
+                            <label for="content-adress">住址：</label>
+                            <input type="input" class="form-control" placeholder="住址" id="content-adress">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group d-flex justify-content-end">
+                            <button class="btn btn-outline-primary">取消</button>
+                            <button class="btn btn-outline-danger ml-3">訂購</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">訂單姓名</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="removeModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $("#editModal").on('show.bs.modal', function (event) {
+            var btn = $(event.relatedTarget)
+            var name = btn.data('name')
+            $(this).find('.modal-title').text(name + "的訂單")
+        })
+    </script>
+</body>
+
+</html>

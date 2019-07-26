@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="SRC">
+    <title>江南皮革批發中心</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+        integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', "Microsoft JhenHei";
+        }
+
+        .nav-button-dropdown {
+            position: relative;
+        }
+
+        .nav-button-dropdown .badge {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+        }
+
+        .dropdown-meau-right {
+            right: 0;
+            left: auto;
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .background-img {
+            background-image: url(https://images.unsplash.com/photo-1521335629791-ce4aec67dd15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60);
+            background-size: cover;
+            background-position: center center;
+            min-height: 400px;
+        }
+
+        .text-background {
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        .card {
+            margin-top: 0px;
+        }
+
+        .alert-around {
+            border-radius: 50px;
+        }
+
+        .btn.disabled {
+            pointer-events: none;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">呆呆購物</a>
+        <div class="dropdown ml-auto">
+            <button class="btn nav-button-dropdown" type="button" data-toggle="dropdown">
+                <i class="fas fa-shopping-cart fa-2x text-white"></i>
+                <span class="badge badge-pill badge-danger">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <table class="table">
+                    <thead class="text-nowrap">
+                        <tr>
+                            <th style="min-width: 175px;">名稱</th>
+                            <th>數量</th>
+                            <th>價格</th>
+                            <th>刪除</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dropdown-tbody">
+                        <tr class="article0">
+                            <td>一月白T <img
+                                    src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                    alt="" style="height: 64px; width: 64px;"></td>
+                            <td>6</td>
+                            <td class="text-right">NT$:100</td>
+                            <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                    data-target="#delete" data-article="'一月白T'6件" data-name="article0"
+                                    data-dollor="100"><i class="fas fa-trash-alt"></i></button>
+                        </tr>
+                        <tr class="article1">
+                            <td>二月黑T <img
+                                    src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                    style="height: 64px; width: 64px;" alt=""></td>
+                            <td>6</td>
+                            <td class="text-right">NT$120</td>
+                            <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                    data-target="#delete" data-article="'二月黑T'6件" data-name="article1"
+                                    data-dollor="120"><i class="fas fa-trash-alt"></i></button>
+                        </tr>
+                        <tr class="article2">
+                            <td>三月白T <img
+                                    src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                    alt="" style="height: 64px; width: 64px;"></td>
+                            <td>6</td>
+                            <td class="text-right">NT$130</td>
+                            <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                    data-target="#delete" data-article="'三月白T'6件" data-name="article2"
+                                    data-dollor="130"><i class="fas fa-trash-alt"></i></button>
+                        </tr>
+                        <tr class="article3">
+                            <td>四月白T <img
+                                    src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                    alt="" style="height: 64px; width: 64px;"></td>
+                            <td>6</td>
+                            <td class="text-right">NT$140</td>
+                            <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                    data-target="#delete" data-article="'四月白T'6件" data-name="article3"
+                                    data-dollor="140"><i class="fas fa-trash-alt"></i></button>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex">
+                    <div class="h3 pt-0 pl-3" id="dropdown-dollor">
+                        NT$:490
+                    </div>
+                    <div class="btn-group  justify-content-end" style="width: 100%;">
+
+                        <div class="pr-4">
+                            <button class="btn btn-secondary" id="car-change">修改</button>
+                            <button class="btn btn-danger">結帳</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid background-img d-flex align-items-end">
+        <div class="container-fluid ">
+            <div class="text-background  text-white">
+                <h1 class="display-4">江南皮革批發中心</h1>
+                <p class="lead">江南皮革廠又要倒閉啦，衣服通通不用200塊，幫幫勞工換成血汗錢
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="list-group sticky-top" id="month-group">
+                    <a href="#January" class="list-group-item active" data-toggle="list">January </a>
+                    <a href="#Febuary" class="list-group-item" data-toggle="list">February </a>
+                    <a href="#" class="list-group-item" data-toggle="list">March </a>
+                    <a href="#" class="list-group-item" data-toggle="list">April </a>
+                    <a href="#" class="list-group-item" data-toggle="list">May </a>
+                    <a href="#" class="list-group-item" data-toggle="list">June </a>
+                    <a href="#" class="list-group-item" data-toggle="list">July </a>
+                    <a href="#" class="list-group-item" data-toggle="list">August </a>
+                    <a href="#" class="list-group-item" data-toggle="list">September </a>
+                    <a href="#" class="list-group-item" data-toggle="list">october </a>
+                    <a href="#" class="list-group-item" data-toggle="list">November </a>
+                    <a href="#" class="list-group-item" data-toggle="list">December </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="January">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季白色T桖</h3>
+                                        <p class="card-body">
+                                            2019年一月潮流單品，純白素T，還在煩惱一月要穿什麼衣服嗎，相信這件白T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季白色T桖</h3>
+                                        <p class="card-body">
+                                            2019年一月潮流單品，純白素T，還在煩惱一月要穿什麼衣服嗎，相信這件白T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季白色T桖</h3>
+                                        <p class="card-body">
+                                            2019年一月潮流單品，純白素T，還在煩惱一月要穿什麼衣服嗎，相信這件白T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季白色T桖</h3>
+                                        <p class="card-body">
+                                            2019年一月潮流單品，純白素T，還在煩惱一月要穿什麼衣服嗎，相信這件白T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季白色T桖</h3>
+                                        <p class="card-body">
+                                            2019年一月潮流單品，純白素T，還在煩惱一月要穿什麼衣服嗎，相信這件白T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季白色T桖</h3>
+                                        <p class="card-body">
+                                            2019年一月潮流單品，純白素T，還在煩惱一月要穿什麼衣服嗎，相信這件白T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Febuary">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100 h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季黑色T桖</h3>
+                                        <p class="card-body">
+                                            2019年二月潮流單品，純黑素T，還在煩惱二月要穿什麼衣服嗎，相信這件黑T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季黑色T桖</h3>
+                                        <p class="card-body">
+                                            2019年二月潮流單品，純黑素T，還在煩惱二月要穿什麼衣服嗎，相信這件黑T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季黑色T桖</h3>
+                                        <p class="card-body">
+                                            2019年二月潮流單品，純黑素T，還在煩惱二月要穿什麼衣服嗎，相信這件黑T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季黑色T桖</h3>
+                                        <p class="card-body">
+                                            2019年二月潮流單品，純黑素T，還在煩惱二月要穿什麼衣服嗎，相信這件黑T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季黑色T桖</h3>
+                                        <p class="card-body">
+                                            2019年二月潮流單品，純黑素T，還在煩惱二月要穿什麼衣服嗎，相信這件黑T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <img class="card-img-top"
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            alt="">
+                                        <h3 clas="card-title">當季黑色T桖</h3>
+                                        <p class="card-body">
+                                            2019年二月潮流單品，純黑素T，還在煩惱二月要穿什麼衣服嗎，相信這件黑T能夠滿足你身為潮流前端的慾望。
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0 text-center">
+                                        <div class="btn-group px-1 btn-group-sm">
+                                            <button class="btn btn-secondary">S</button>
+                                            <button class="btn btn-secondary" disabled>M</button>
+                                            <button class="btn btn-secondary">L</button>
+                                            <button class="btn btn-secondary">XL</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="March"></div>
+                    <div class="tab-pane" id="April"></div>
+                    <div class="tab-pane" id="May"></div>
+                    <div class="tab-pane" id="June"></div>
+                    <div class="tab-pane" id="July"></div>
+                    <div class="tab-pane" id="August"></div>
+                    <div class="tab-pane" id="September"></div>
+                    <div class="tab-pane" id="October"></div>
+                    <div class="tab-pane" id="November"></div>
+                    <div class="tab-pane" id="December"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container bg-light mt-5">
+            &copy;呆呆團隊 20190619
+        </div>
+    </footer>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">January</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">當季白T</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="col-md-4">
+                <div class="h2 my-3">純白素T</div>
+                <div class="d-flex justify-content-between my-3">
+                    <del class="h4 ">原價：$200</del>
+                    <div class=" h4  text-danger">特價：$100</div>
+                </div>
+                <p class="d-inline">尺寸</p>
+                <div class="btn-group px-1 btn-group-sm">
+                    <button class="btn btn-secondary">S</button>
+                    <button class="btn btn-secondary" disabled>M</button>
+                    <button class="btn btn-secondary">L</button>
+                    <button class="btn btn-secondary">XL</button>
+                </div>
+                <div class="input-group d-flex align-items-center my-4">
+                    <p class="mb-0">數量：</p>
+                    <select name="" id="" class="form-control">
+                        <option value="">一件</option>
+                        <option value="">二件</option>
+                        <option value="">三件</option>
+                    </select>
+                    <button class="btn btn-primary ml-2">加入購物車</button>
+                </div>
+
+
+
+
+
+            </div>
+            <div class="col-md-8">
+                <div class="h2 text-center my-3">永遠不退流行的白色素T</div>
+                <p class="text-center">白色T-Shart，你衣櫃內一定會有的衣服，無論是單穿還是外面多套幾件衣服他一定能滿足你對穿搭上的需要，現在呆呆購物一件只要100元，你還在等什麼呢</p>
+                <div class="card text-center">
+                    <div class="card-title">
+                        <h3 class="bg-info mb-0 text-white">純白不染色</h3>
+                        <img src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                            alt="" class="card-img-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="form-row text-center">
+            <div class="col-sm-4">
+                <div class="alert alert-around alert-info order-0">1.訂單確認</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-around order-1">2.金流付款</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-around order-2">3.訂單完成</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="page0">
+                <div class="accordion" id='card-accordion'>
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <div class="">
+                                <div class="mb-0 d-flex justify-content-between">
+                                    <button class="btn btn-link pt-0 " type="button" data-toggle="collapse"
+                                        data-target="#collapse-accordion" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        購物清單
+                                    </button>
+                                    <p class="h5" id="order-dollor">$490</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapse-accordion" data-parent="#card-accordion">
+                        <table class="table">
+                            <thead class="text-nowrap">
+                                <tr>
+                                    <th style="min-width: 175px;">名稱</th>
+                                    <th>數量</th>
+                                    <th>價格</th>
+                                    <th>刪除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="article0">
+                                    <td>一月白T <img
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="" style="height: 64px; width: 64px;"></td>
+
+                                    <td>6</td>
+                                    <td class="text-right">NT$:100</td>
+                                    <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                            data-target="#delete" data-article="'一月白T'6件" data-name="article0"
+                                            data-dollor="100"><i class="fas fa-trash-alt"></i></button>
+                                </tr>
+                                <tr class="article1">
+                                    <td>二月黑T <img
+                                            src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                            style="height: 64px; width: 64px;" alt=""></td>
+                                    <td>6</td>
+                                    <td class="text-right">NT$120</td>
+                                    <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                            data-target="#delete" data-article="'二月白T'6件" data-name="article1"
+                                            data-dollor="120"><i class="fas fa-trash-alt"></i></button>
+                                </tr>
+                                <tr class="article2">
+                                    <td>三月白T <img
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="" style="height: 64px; width: 64px;"></td>
+
+                                    <td>6</td>
+                                    <td class="text-right">NT$130</td>
+                                    <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                            data-target="#delete" data-article="'三月白T'6件" data-name="article2"
+                                            data-dollor="130"><i class="fas fa-trash-alt"></i></button>
+                                </tr>
+                                <tr class="article3">
+                                    <td>四月白T <img
+                                            src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                            alt="" style="height: 64px; width: 64px;"></td>
+
+                                    <td>6</td>
+                                    <td class="text-right">NT$140</td>
+                                    <td class="text-right"><button class="btn pt-0" type="button" data-toggle="modal"
+                                            data-target="#delete" data-article="'四月白T'6件" data-name="article3"
+                                            data-dollor="140"><i class="fas fa-trash-alt"></i></button>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <form class="needs-validation" target="nm_iframe" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom01">姓氏</label>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
+                                value="Mark" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom02">名字</label>
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
+                                value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername">使用者名稱</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                </div>
+                                <input type="text" class="form-control" id="validationCustomUsername"
+                                    placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">居住地</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom04">州</label>
+                            <input type="text" class="form-control" id="validationCustom04" placeholder="State"
+                                required>
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">郵遞區號</label>
+                            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary " type="submit">Submit form</button>
+                </form>
+                <!-- <iframe id="id_iframe" name="nm_iframe" style="display: none;"></iframe>  -->
+
+            </div>
+            <div class="page1" style="display: none;">
+                <div class="form-group">
+                    <label for="pay">付款方式</label>
+                    <select name="" id="pay" class="form-control form-control-sm">
+                        <option value="visa">VISA卡</option>
+                        <option value="10月">信用卡</option>
+                        <option value="11月">宅配</option>
+                        <option value="12月">便利商店取貨</option>
+                    </select>
+                </div>
+                <button class="btn btn-danger btn-next">下一頁</button>
+            </div>
+            <div class="page2" style="display: none;">
+                <div class="h3">購物明細</div>
+                <table class="table">
+                    <thead class="text-nowrap">
+                        <tr>
+                            <th style="min-width: 175px;">名稱</th>
+                            <th>數量</th>
+                            <th>價格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="article0">
+                                <td>一月白T <img
+                                    src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                    alt="" style="height: 64px; width: 64px;"></td>
+                            <td>6</td>
+                            <td class="text-right">NT$:100</td>
+                        </tr>
+                        <tr class="article1">
+                                <td>二月黑T <img
+                                    src="https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+                                    style="height: 64px; width: 64px;" alt=""></td>
+                            <td>6</td>
+                            <td class="text-right">NT$120</td>
+                        </tr>
+                        <tr class="article2">
+                                <td>三月白T <img
+                                    src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                    alt="" style="height: 64px; width: 64px;"></td>
+                            <td>6</td>
+                            <td class="text-right">NT$130</td>
+                        </tr>
+                        <tr class="article3">
+                                <td>四月白T <img
+                                    src="https://images.unsplash.com/photo-1534961880437-ce5ae2033053?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+                                    alt="" style="height: 64px; width: 64px;"></td>
+                            <td>6</td>
+                            <td class="text-right">NT$140</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container">
+                    <p class="text-right total-money">總價:NT$490</p>
+                    <div class="h2 text-center">個人資料</div>
+                    <table class="table">
+                        <tr>
+                            <td>姓名：</td>
+                            <td>孫悟空</td>
+                        </tr>
+                        <tr>
+                            <td>信箱：</td>
+                            <td>qwer1234@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>電話：</td>
+                            <td>0987-654321</td>
+                        </tr>
+                        <tr>
+                            <td>住址</td>
+                            <td>台北市基金二路103號</td>
+                        </tr>
+                    </table>
+
+
+                </div>
+                <button class="btn btn-danger btn-next">下一頁</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="delete" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>確定要刪除此訂單嗎</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">否</button>
+                    <button type="button" class="btn btn-primary delete-btn" data-dismiss="modal">是</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script> //設定
+        var now_dollor = 490;
+        var $number = $('#dropdown-tbody>tr').length;
+        $('.dropdown>.btn>.badge').text($number);
+
+        $('#delete').on('show.bs.modal', function (event) {
+
+            var btn = $(event.relatedTarget);
+            var article = btn.data('article');
+            var article_id = btn.data('name');
+            var dollor = btn.data('dollor');
+            console.log(dollor);
+            $(this).find('.modal-title').text("刪除" + article);
+
+            $('.delete-btn').off("click").on('click', function () {
+                $('.' + article_id).remove()
+                now_dollor = now_dollor - dollor;
+                $number = $('#dropdown-tbody>tr').length;
+                $('.dropdown>.btn>.badge').text($number);
+                $('#dropdown-dollor').text("NT$:" + now_dollor);
+                $('#order-dollor').text("NT$:" + now_dollor);
+                $('.total-money').text("NT$:" + now_dollor);
+            });
+
+        });
+
+
+    </script>
+    <script> //表單驗證&訂單流程
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            
+                        }
+                        else {
+                            $('.page0').css('display', 'none');
+                            $('.page1').css('display', 'block');
+                            $('.order-0').removeClass('alert-info').addClass('alert-secondary');
+                            $('.order-1').addClass('alert-info');
+                        }
+                        form.classList.add('was-validated');
+                        event.preventDefault();
+                    }, false);
+                });
+            }, false);
+            $('.btn-next').on('click', function () {
+                $('.page1').css('display', 'none');
+                $('.page2').css('display', 'block');
+                $('.order-1').removeClass('alert-info').addClass('alert-secondary');
+                $('.order-2').addClass('alert-info');
+                $('.btn-next').css('display', 'none');
+
+            })
+        })();
+    </script>
+</body>
+
+</html>
