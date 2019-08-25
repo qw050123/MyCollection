@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的訂單管理</title>
+    <link rel="stylesheet" href="css/all.css">
+    <style>
+        .table th.click {
+            cursor: pointer;
+        }
+
+        .table th.click {
+            cursor: pointer;
+        }
+
+        .icon {
+            display: inline-block;
+        }
+
+        .icon.inverse {
+            transform: rotate(180deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="row d-flex justify-content-center">
+            <div class="col-8">
+                <h1 class="my-5">我的訂單管理</h1>
+                <table class="table border-dark">
+                    <thead>
+                        <tr class="bg-general">
+                            <th class="border-bottom-0">品名</th>
+                            <th class="click border-bottom-0"
+                                @click="priceSort = !priceSort , itemFocus = true , termSort = false , arraySort">
+                                價格
+                                <span :class="{inverse : priceSort,icon : true}" v-if="itemFocus">
+                                    <i class=" fas fa-angle-up text-dark"></i>
+                                </span>
+                            </th>
+                            <th class="click border-bottom-0"
+                                @click="termSort = !termSort , itemFocus = false, priceSort = false , arraySort">
+                                到期日
+                                <span :class="{inverse : termSort,icon : true}" v-if="!itemFocus">
+                                    <i class=" fas fa-angle-up text-dark"></i>
+                                </span>
+                            </th>
+                        </tr>
+                        <tr v-for="(item,key) in arraySort" :key="item.name">
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.expiryDate }}</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://kit.fontawesome.com/e1aad31898.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                priceSort: true,
+                termSort: false,
+                itemFocus: true,
+                data: [
+                    {
+                        name: '巧呼呼蘇打水',
+                        price: 30,
+                        expiryDate: 90
+                    },
+                    {
+                        name: '心驚膽跳羊肉飯',
+                        price: 65,
+                        expiryDate: 2
+                    },
+                    {
+                        name: '郭師傅武功麵包',
+                        price: 32,
+                        expiryDate: 1
+                    },
+                    {
+                        name: '不太會過期的新鮮牛奶',
+                        price: 75,
+                        expiryDate: 600
+                    },
+                    {
+                        name: '金殺 巧粒粒',
+                        price: 120,
+                        expiryDate: 200
+                    }
+                ],
+            },
+            computed: {
+                arraySort: function () {
+                    let vm = this;
+                    if (vm.itemFocus) {
+                        return vm.data.sort((a, b) => vm.priceSort == true ? a.price - b.price : b.price - a.price);
+                    }
+                    else {
+                        return vm.data.sort((a, b) => vm.termSort == true ? a.expiryDate - b.expiryDate : b.expiryDate - a.expiryDate);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.needInline{
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0px 15px 0px;
+    margin: 0px;
+    background-color: aquamarine;
+    li{
+        font-size: 2rem;
+        display: inline;
+    }
+    a{
+        color: black;
+        text-decoration: none;
+    }
+    .navRight{
+        margin-left: auto;
+    }
+}
+.welcomePage{
+    padding-top: 5%;
+    text-align: center;
+    .welcomeText{
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,41 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.needInline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 15px 0px 15px 0px;
+  margin: 0px;
+  background-color: aquamarine;
+}
+
+.needInline li {
+  font-size: 2rem;
+  display: inline;
+}
+
+.needInline a {
+  color: black;
+  text-decoration: none;
+}
+
+.needInline .navRight {
+  margin-left: auto;
+}
+
+.welcomePage {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.welcomePage .welcomeText {
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=qw050123.css.map */
